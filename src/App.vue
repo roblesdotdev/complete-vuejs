@@ -1,10 +1,16 @@
 <script setup>
-// This starter template is using Vue 3 <script setup> SFCs
-// Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
+import { ref } from "vue";
+const name = "World";
+
+const count = ref(0);
 </script>
 
 <template>
-  <h1>It Works</h1>
+  <h1>Hello {{ name }}!</h1>
+
+  <button @click="count++">Increment</button>
+
+  <h3>{{ count }}</h3>
 </template>
 
 <style></style>
