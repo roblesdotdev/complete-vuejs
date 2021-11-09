@@ -8,6 +8,14 @@ const count = ref(0);
 function isEven() {
   return count.value % 2 === 0;
 }
+
+function getClass(age) {
+  if (age % 2 === 0) {
+    return "red";
+  } else {
+    return "blue";
+  }
+}
 </script>
 
 <template>
@@ -20,8 +28,15 @@ function isEven() {
   <p v-else>Odd</p>
 
   <div v-for="age in ages">
-    {{ age }}
+    <p v-bind:class="getClass(age)">{{ age }}</p>
   </div>
 </template>
 
-<style></style>
+<style>
+.red {
+  color: red;
+}
+.blue {
+  color: blue;
+}
+</style>
