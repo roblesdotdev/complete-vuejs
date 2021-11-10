@@ -1,18 +1,9 @@
 <script setup>
-import { ref } from "vue";
-const name = ref("World");
+import Num from "./components/Num.vue";
+
+const numbers = [1, 2, 3, 4];
 </script>
 
 <template>
-  <input v-model="name" />
-  <p>Hello {{ name }}!</p>
+  <Num v-for="number in numbers" :number="number" />
 </template>
-
-<style>
-.red {
-  color: red;
-}
-.blue {
-  color: blue;
-}
-</style>
