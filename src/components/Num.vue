@@ -3,6 +3,8 @@ const props = defineProps({
   number: Number,
 });
 
+const emit = defineEmits(["select"]);
+
 function isEven() {
   return props.number % 2 === 0;
 }
@@ -10,11 +12,16 @@ function isEven() {
 function getClass() {
   return isEven() ? "border-red" : "border-green";
 }
+
+function onSelect() {
+  emit("select", props.number);
+}
 </script>
 
 <template>
   <div class="box" :class="getClass()">
     {{ number }}
+    <button @click="onSelect" class="btn">Select</button>
   </div>
 </template>
 
@@ -27,6 +34,7 @@ function getClass() {
   color: #fff;
   font-size: 24px;
   font-weight: bold;
+  text-align: center;
 }
 
 .border-red {
@@ -35,5 +43,10 @@ function getClass() {
 
 .border-green {
   border-bottom: solid 8px green;
+}
+
+.btn {
+  display: block;
+  margin-top: 20px;
 }
 </style>
